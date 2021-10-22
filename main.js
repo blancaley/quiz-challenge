@@ -31,31 +31,41 @@ let quiz = [
     }
 ]
 
-const darkModeButton = document.querySelector("#darkMode");
-
+// Dark mode toggle
 function darkMode() {
     document.body.classList.toggle("dark-mode");
 }
-
+const darkModeButton = document.querySelector("#darkMode");
 darkModeButton.addEventListener("click", darkMode);
 
 function showQuiz() {
     const quizContainer = document.querySelector("#quizContainer");
+
+    // Create and show each question
     quiz.forEach(questionAndAnswer => {
-        let li = document.createElement("li");
+        let questionItem = document.createElement("li");
         let fieldset = document.createElement("fieldset");
         let legend = document.createElement("legend");
+        const optionsList = document.createElement("ul");
         legend.innerText = questionAndAnswer.question;
 
         fieldset.appendChild(legend);
-        li.appendChild(fieldset);
-        quizContainer.appendChild(li);
+        fieldset.appendChild(optionsList);
+        questionItem.appendChild(fieldset);
+        quizContainer.appendChild(questionItem);
 
-    })
-
-
-
-
-
-
+        // Create and show all options for each question
+        for (const option in questionAndAnswer.options) {
+            let optionItem = document.createElement("li");
+            optionsList.id = "optionsList";
+            optionItem.innerHTML = 
+            `<label>
+                <input type="radio" name="radio-${questionAndAnswer.id}" value="${questionAndAnswer.options[option]}" id="${option}">
+                ${questionAndAnswer.options[option]}
+            </label>`;
+            optionsList.appendChild(optionItem);
+        }
+    });
 }
+
+showQuiz();
