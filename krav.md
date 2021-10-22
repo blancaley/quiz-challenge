@@ -6,8 +6,7 @@ Version 2
 [] Längst ned i quizet ska det finnas en knapp med texten “Check answers”. [] När den klickas på, ska det visas hur många rätt användaren hade (ska skrivas ut i DOM:en). 
 [] Om användaren har över hälften rätt, ska meddelandet stå i orange färg. Om användaren har över 75% rätt, ska meddelandet stå i grön färg.
 
-
 Version 1
 [] Quizet ska innehålla 10 frågor.
-[] Användaren ska kunna byta utseende på sidan till dark mode och light mode.
+[x] Användaren ska kunna byta utseende på sidan till dark mode och light mode.
 [] Användaren ska kunna göra om quizet med hjälp av ett knapptryck.
