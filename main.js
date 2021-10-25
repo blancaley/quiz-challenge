@@ -31,6 +31,10 @@ let quiz = [
     }
 ]
 
+let answers = [];
+
+let quizContainer = document.querySelector("#quizContainer");
+
 // Dark mode toggle
 function darkMode() {
     document.body.classList.toggle("dark-mode");
@@ -39,10 +43,8 @@ const darkModeButton = document.querySelector("#darkMode");
 darkModeButton.addEventListener("click", darkMode);
 
 function showQuiz() {
-    const quizContainer = document.querySelector("#quizContainer");
-
     // Create and show each question
-    quiz.forEach(questionAndAnswer => {
+    quiz.forEach((questionAndAnswer, questionNumber) => {
         let questionItem = document.createElement("li");
         let fieldset = document.createElement("fieldset");
         let legend = document.createElement("legend");
@@ -60,12 +62,27 @@ function showQuiz() {
             optionsList.id = "optionsList";
             optionItem.innerHTML = 
             `<label>
-                <input type="radio" name="radio-${questionAndAnswer.id}" value="${questionAndAnswer.options[option]}" id="${option}">
+                <input type="radio" name="question-${questionNumber}" value="${questionAndAnswer.options[option]}" id="${option}">
                 ${questionAndAnswer.options[option]}
             </label>`;
             optionsList.appendChild(optionItem);
         }
     });
+}
+
+function saveAnswers() {
+    let questionList = quizContainer.childNodes;
+    // Go through each question
+    questionList.forEach((question, questionNumber) => { 
+        // Find selected answer
+        let selectedAnswer = document.querySelector(`input[name="question-${questionNumber}"]:checked`);
+        //Save it to answers array
+        if (selectedAnswer !== null) {
+            //Get question text
+            answers.push({selected: selectedAnswer.id
+                });
+        }
+    })
 }
 
 showQuiz();
