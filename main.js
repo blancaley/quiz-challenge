@@ -28,6 +28,16 @@ let quiz = [
             c: "Troll"
         },
         rightAnswer: "a"
+    },
+    {
+        id: 4,
+        question: "I'm a multiple choice question",
+        options: {
+            a: "Correct",
+            b: "Correct",
+            c: "Wrong"
+        },
+        rightAnswer: ["a", "b"]
     }
 ]
 
@@ -59,12 +69,22 @@ function showQuiz() {
         // Create and show all options for each question
         for (const option in questionAndAnswer.options) {
             let optionItem = document.createElement("li");
-            optionsList.id = "optionsList";
-            optionItem.innerHTML = 
-            `<label>
-                <input type="radio" name="question-${questionNumber}" value="${questionAndAnswer.options[option]}" id="${option}">
-                ${questionAndAnswer.options[option]}
-            </label>`;
+            optionsList.id = "optionsList"; 
+            // Create checkbox if there are multiple answers
+            if (Array.isArray(questionAndAnswer.rightAnswer) === true) {
+                optionItem.innerHTML =
+                `<label>
+                    <input type="checkbox" name="question-${questionNumber}" value="${questionAndAnswer.options[option]}" id="${option}">
+                    ${questionAndAnswer.options[option]}
+                </label>`;
+            } else {
+                // Create radio button if there's one answer
+                optionItem.innerHTML =
+                `<label>
+                    <input type="radio" name="question-${questionNumber}" value="${questionAndAnswer.options[option]}" id="${option}">
+                    ${questionAndAnswer.options[option]}
+                </label>`;
+            }
             optionsList.appendChild(optionItem);
         }
     });
@@ -78,9 +98,7 @@ function saveAnswers() {
         let selectedAnswer = document.querySelector(`input[name="question-${questionNumber}"]:checked`);
         //Save it to answers array
         if (selectedAnswer !== null) {
-            //Get question text
-            answers.push({selected: selectedAnswer.id
-                });
+            answers.push({selected: selectedAnswer.id});
         }
     })
 }
