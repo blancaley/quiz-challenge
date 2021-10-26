@@ -143,3 +143,4 @@ function checkAnswers() {
 showQuiz();
 
 darkModeButton.addEventListener("click", darkMode);
+checkResultButton.addEventListener("click", checkAnswers);
