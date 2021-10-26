@@ -89,18 +89,39 @@ function showQuiz() {
         }
     });
 }
+// Alternatives to get answers array
+// ['a', 'b', 'b', ['a','c']]
+
+// [{Question: "Question 1",
+//   answer: "a"},
+// {Question: "Question 2",
+//  answer: ["a", "b"]}]
 
 function saveAnswers() {
     let questionList = quizContainer.childNodes;
+
     // Go through each question
     questionList.forEach((question, questionNumber) => { 
-        // Find selected answer
-        let selectedAnswer = document.querySelector(`input[name="question-${questionNumber}"]:checked`);
-        //Save it to answers array
-        if (selectedAnswer !== null) {
-            answers.push({selected: selectedAnswer.id});
+        // Find selected answers
+        let selectedAnswerElement = document.querySelectorAll(`input[name="question-${questionNumber}"]:checked`);
+        let selectedAnswerLetters = [];
+
+        // TODO: Catch error if there's no selected answer. If selectedAnswerElement.length is 0 print message to select an option.
+
+        // Save multiple choice answers as array       
+        if(selectedAnswerElement.length >= 2) {
+            selectedAnswerElement.forEach(element => {
+                let selectedAnswerLetter = element.id;
+                selectedAnswerLetters.push(selectedAnswerLetter);
+            })
+        } else {
+        // Get the letter selected for single answer
+            selectedAnswerLetters = selectedAnswerElement[0].id;
         }
-    })
+
+        // Save selected answer(s) to array
+        answers.push(selectedAnswerLetters);
+    });
 }
 
 showQuiz();
