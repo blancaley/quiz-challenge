@@ -89,13 +89,6 @@ function showQuiz() {
         }
     });
 }
-// Alternatives to get answers array
-// ['a', 'b', 'b', ['a','c']]
-
-// [{Question: "Question 1",
-//   answer: "a"},
-// {Question: "Question 2",
-//  answer: ["a", "b"]}]
 
 function saveAnswers() {
     let questionList = quizContainer.childNodes;
@@ -122,6 +115,27 @@ function saveAnswers() {
         // Save selected answer(s) to array
         answers.push(selectedAnswerLetters);
     });
+}
+
+// Compare results from 2 arrays 
+function checkAnswers() {
+    //Save total correct answers
+    let correctAnswers = 0;
+
+    for (let i = 0; i < quiz.length; i++ ) {
+        let rightAnswer = quiz[i].rightAnswer;
+        let selectedAnswer = answers[i];
+
+        // Check for multiple correct answers
+        if (Array.isArray(rightAnswer)) {
+            if (JSON.stringify(rightAnswer) === JSON.stringify(selectedAnswer)) {
+                correctAnswers++;
+            }
+        // Check for single correct answer
+        } else if (rightAnswer === selectedAnswer) {
+            correctAnswers++;
+        }
+    }
 }
 
 showQuiz();
