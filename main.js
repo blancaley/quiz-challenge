@@ -41,7 +41,8 @@ let quiz = [
     }
 ]
 
-let answers = [];
+let answers;
+let correctAnswers;
 
 const darkModeButton = document.querySelector("#darkMode");
 const quizContainer = document.querySelector("#quizContainer");
@@ -91,6 +92,8 @@ function showQuiz() {
 
 function saveAnswers() {
     let questionList = quizContainer.childNodes;
+    // Reset array
+    answers = [];
 
     // Go through each question
     questionList.forEach((question, questionNumber) => { 
@@ -116,10 +119,10 @@ function saveAnswers() {
     });
 }
 
-// Compare results from 2 arrays 
 function checkAnswers() {
-    //Save total correct answers
-    let correctAnswers = 0;
+    saveAnswers();
+    // Reset counter
+    correctAnswers = 0;
 
     for (let i = 0; i < quiz.length; i++ ) {
         let rightAnswer = quiz[i].rightAnswer;
