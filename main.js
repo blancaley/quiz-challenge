@@ -43,14 +43,13 @@ let quiz = [
 
 let answers = [];
 
-let quizContainer = document.querySelector("#quizContainer");
+const darkModeButton = document.querySelector("#darkMode");
+const quizContainer = document.querySelector("#quizContainer");
+const checkResultButton = document.querySelector("#checkResult");
 
-// Dark mode toggle
 function darkMode() {
     document.body.classList.toggle("dark-mode");
 }
-const darkModeButton = document.querySelector("#darkMode");
-darkModeButton.addEventListener("click", darkMode);
 
 function showQuiz() {
     // Create and show each question
@@ -139,3 +138,5 @@ function checkAnswers() {
 }
 
 showQuiz();
+
+darkModeButton.addEventListener("click", darkMode);
