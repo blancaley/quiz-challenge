@@ -4,7 +4,7 @@ Version 2
 [x] För att få rätt på denna fråga, behöver samtliga rätta svarsalternativ vara ifyllda, varken fler eller mindre.
 [x] Längst ned i quizet ska det finnas en knapp med texten “Check answers”. 
 [x] När den klickas på, ska det visas hur många rätt användaren hade (ska skrivas ut i DOM:en). 
-[] Om användaren har över hälften rätt, ska meddelandet stå i orange färg. Om användaren har över 75% rätt, ska meddelandet stå i grön färg.
+[x] Om användaren har över hälften rätt, ska meddelandet stå i orange färg. Om användaren har över 75% rätt, ska meddelandet stå i grön färg.
 
 Version 1
 [] Quizet ska innehålla 10 frågor. (array of objects)

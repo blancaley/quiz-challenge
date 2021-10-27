@@ -153,6 +153,13 @@ function showResult() {
     quizFinishedText = document.createElement("h2");
     quizFinishedText.innerText = `You scored ${correctAnswers}/${quiz.length}`;
     quizFinished.appendChild(quizFinishedText);
+
+    let score = correctAnswers*100/quiz.length;
+    if (score > 75) {
+        quizFinishedText.classList.add("over-75");
+    } else if (score > 50) {
+        quizFinishedText.classList.add("over-50");
+    }
 }
 
 showQuiz();
