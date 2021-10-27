@@ -48,6 +48,7 @@ let quizFinishedText;
 const darkModeButton = document.querySelector("#darkMode");
 const quizContainer = document.querySelector("#quizContainer");
 const checkResultButton = document.querySelector("#checkResult");
+const restartQuizButton = document.querySelector("#restartQuiz");
 const quizFinished = document.querySelector("#quizFinished");
 
 function darkMode() {
@@ -162,7 +163,16 @@ function showResult() {
     }
 }
 
+function restartQuiz() {
+    answers = [];
+    let allCheckboxes = document.querySelectorAll("input");
+    allCheckboxes.forEach(checkbox => {
+        checkbox.checked = false;}
+    )
+}
+
 showQuiz();
 
 darkModeButton.addEventListener("click", darkMode);
 checkResultButton.addEventListener("click", checkAnswers);
+restartQuizButton.addEventListener("click", restartQuiz);
