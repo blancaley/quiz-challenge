@@ -43,10 +43,12 @@ let quiz = [
 
 let answers;
 let correctAnswers;
+let quizFinishedText;
 
 const darkModeButton = document.querySelector("#darkMode");
 const quizContainer = document.querySelector("#quizContainer");
 const checkResultButton = document.querySelector("#checkResult");
+const quizFinished = document.querySelector("#quizFinished");
 
 function darkMode() {
     document.body.classList.toggle("dark-mode");
@@ -138,6 +140,19 @@ function checkAnswers() {
             correctAnswers++;
         }
     }
+    showResult();
+}
+
+function showResult() {
+    // Clear previous results
+    if (quizFinishedText) {
+        quizFinished.removeChild(quizFinishedText);
+    }
+
+    // Create and show score
+    quizFinishedText = document.createElement("h2");
+    quizFinishedText.innerText = `You scored ${correctAnswers}/${quiz.length}`;
+    quizFinished.appendChild(quizFinishedText);
 }
 
 showQuiz();
