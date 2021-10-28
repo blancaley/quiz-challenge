@@ -218,6 +218,8 @@ function restartQuiz() {
     allCheckboxes.forEach(checkbox => {
         checkbox.checked = false;}
     )
+    checkResultButton.hidden = true;
+    unfinishedQuizMessage.classList.remove("hide");
 }
 
 function deleteScoreMessage() {
