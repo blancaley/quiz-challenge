@@ -15,3 +15,7 @@ body {
 .over-50 {
   color: orange;
 }
+
+.hide {
+  display: none;
+}

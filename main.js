@@ -9,15 +9,6 @@ let quiz = [
         rightAnswer: "b"
     },
     {
-        question: "What is the name of the King of Sweden?",
-        options: {
-            a: "Carl IXV Gustaf",
-            b: "Carl VIX Gustaf",
-            c: "Carl XVI Gustaf"
-        },
-        rightAnswer: "c"
-    },
-    {
         question: "What is Kebnekaise?",
         options: {
             a: "Sweden's highest mountain",
@@ -109,9 +100,10 @@ let correctAnswers;
 let quizFinishedText;
 
 const darkModeButton = document.querySelector("#darkMode");
-const quizContainer = document.querySelector("#quizContainer");
 const checkResultButton = document.querySelector("#checkResult");
 const restartQuizButton = document.querySelector("#restartQuiz");
+const quizContainer = document.querySelector("#quizContainer");
+const questionList = quizContainer.childNodes;
 const quizFinished = document.querySelector("#quizFinished");
 
 function darkMode() {
@@ -157,7 +149,6 @@ function showQuiz() {
 }
 
 function saveAnswers() {
-    let questionList = quizContainer.childNodes;
     // Reset array
     answers = [];
 
@@ -166,8 +157,6 @@ function saveAnswers() {
         // Find selected answers
         let selectedAnswerElement = document.querySelectorAll(`input[name="question-${questionNumber}"]:checked`);
         let selectedAnswerLetters = [];
-
-        // TODO: Catch error if there's no selected answer. If selectedAnswerElement.length is 0 print message to select an option.
 
         // Save multiple choice answers as array       
         if(selectedAnswerElement.length >= 2) {
@@ -237,8 +226,23 @@ function deleteScoreMessage() {
     }
 }
 
+function isQuizComplete() {
+    const allCheckedOptions = document.querySelectorAll("input:checked");
+    // Only if all questions are answered show Check Answers button and remove message.
+    if (allCheckedOptions.length >= quiz.length) {
+        checkResultButton.hidden = false;
+        unfinishedQuizMessage.classList.add("hide");
+    }
+}
+
 showQuiz();
 
 darkModeButton.addEventListener("click", darkMode);
 checkResultButton.addEventListener("click", checkAnswers);
 restartQuizButton.addEventListener("click", restartQuiz);
+
+const allOptions = document.querySelectorAll("input");
+allOptions.forEach(option => {
+    option.addEventListener("change", isQuizComplete)
+    }
+)
