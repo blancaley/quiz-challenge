@@ -193,6 +193,7 @@ function checkAnswers() {
             correctAnswers++;
         }
     }
+    restartQuizButton.hidden = false;
     showResult();
 }
 
@@ -220,6 +221,7 @@ function restartQuiz() {
     )
     checkResultButton.hidden = true;
     unfinishedQuizMessage.classList.remove("hide");
+    restartQuizButton.hidden = true;
 }
 
 function deleteScoreMessage() {
