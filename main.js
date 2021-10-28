@@ -208,11 +208,7 @@ function checkAnswers() {
 }
 
 function showResult() {
-    // Clear previous results
-    if (quizFinishedText) {
-        quizFinished.removeChild(quizFinishedText);
-    }
-
+    deleteScoreMessage();
     // Create and show score
     quizFinishedText = document.createElement("h2");
     quizFinishedText.innerText = `You scored ${correctAnswers}/${quiz.length}`;
@@ -228,10 +224,17 @@ function showResult() {
 
 function restartQuiz() {
     answers = [];
+    deleteScoreMessage();
     let allCheckboxes = document.querySelectorAll("input");
     allCheckboxes.forEach(checkbox => {
         checkbox.checked = false;}
     )
+}
+
+function deleteScoreMessage() {
+    if (quizFinishedText) {
+        quizFinished.removeChild(quizFinishedText);
+    }
 }
 
 showQuiz();
