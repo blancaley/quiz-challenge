@@ -7,7 +7,7 @@ Version 2
 [x] Om användaren har över hälften rätt, ska meddelandet stå i orange färg. Om användaren har över 75% rätt, ska meddelandet stå i grön färg.
 
 Version 1
-[] Quizet ska innehålla 10 frågor. (array of objects)
+[x] Quizet ska innehålla 10 frågor. (array of objects)
 [x] Användaren ska kunna byta utseende på sidan till dark mode och light mode.
 [x] Användaren ska kunna göra om quizet med hjälp av ett knapptryck. (empty array with saved answers, clear selected answers buttons, clear DOM/go to first question)
 [x] Show questions in window

@@ -1,6 +1,5 @@
 let quiz = [
     {
-        id: 1,
         question: "Which is the local currency in Sweden?",
         options: {
             a: "Euro (EUR)",
@@ -10,7 +9,6 @@ let quiz = [
         rightAnswer: "b"
     },
     {
-        id: 2,
         question: "What is the name of the King of Sweden?",
         options: {
             a: "Carl IXV Gustaf",
@@ -20,7 +18,6 @@ let quiz = [
         rightAnswer: "c"
     },
     {
-        id: 3,
         question: "What is Kebnekaise?",
         options: {
             a: "Sweden's highest mountain",
@@ -30,14 +27,80 @@ let quiz = [
         rightAnswer: "a"
     },
     {
-        id: 4,
-        question: "I'm a multiple choice question",
+        question: "Choose all the Swedish cities:",
         options: {
-            a: "Correct",
-            b: "Correct",
-            c: "Wrong"
+            a: "Göteborg",
+            b: "Åland",
+            c: "Öland",
+            d: "Bergen"
         },
-        rightAnswer: ["a", "b"]
+        rightAnswer: ["a", "c"]
+    },
+    {
+        question: "When is the National Day of Sweden?",
+        options: {
+            a: "25 June",
+            b: "13 December",
+            c: "6 June"
+        },
+        rightAnswer: "c"
+    },
+    {
+        question: "Which of the following are classic Swedish meals?",
+        options: {
+            a: "Räksmörgås (shrimp sandwich)",
+            b: "Wallenbergare (veal burger)",
+            c: "Stegt flæsk med persillesovs (crispy pork with parsley sauce)",
+            d: "Köttbullar (meatballs)",
+            e: "Kroppkakor (boiled potato dumplings)",
+            f: "Poronkäristys (sauteed reindeer)"
+        },
+        rightAnswer: ["a", "b", "d", "e"]
+    },
+    {
+        question: "What are the vowels in the Swedish language?",
+        options: {
+            a: "A, E, I, O, U, Å, Ä, Ö",
+            b: "A, E, I, O, U",
+            c: "A, E, I, O, U, Y, Å, Ä, Ö"
+        },
+        rightAnswer: "c"
+    },
+    {
+        question: "What is the population in Sweden (2021)?",
+        options: {
+            a: "Ten million people",
+            b: "Five million people",
+            c: "Eight million people"
+        },
+        rightAnswer: "a"
+    },
+    {
+        question: "Which one of the following books are written by Swedish writer Hjalmar Söderberg?",
+        options: {
+            a: "Den allvarsamma leken (The Serious Game)",
+            b: "Inferno",
+            c: "Mio, min Mio (Mio, My Son)"
+        },
+        rightAnswer: "a"
+    },
+    {
+        question: "Is Sweden the country with the highest number of patents per capita in Europe?",
+        options: {
+            a: "Yes",
+            b: "No",
+        },
+        rightAnswer: "a"
+    },
+    {
+        question: "Two of the following are Swedish inventions, which ones are they?",
+        options: {
+            a: "Three-point seatbelt",
+            b: "Traffic lights",
+            c: "Pacemaker",
+            d: "Cardiac defibrillators"
+        },
+        rightAnswer: ["a", "c"]
     }
 ]
 
