@@ -242,8 +242,7 @@ function isQuizComplete() {
         }
     })
     if (answeredQuestionsCounter === quiz.length) {
-    // When all questions are answered, save them, show Check Answers button and hide feedback message
-        saveAnswers();
+    // When all questions are answered show Check Answers button and hide feedback message
         checkResultButton.hidden = false;
         unfinishedQuizMessage.classList.add("hide");
     } else {
