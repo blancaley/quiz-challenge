@@ -1,12 +1,24 @@
 body {
-    background-color: white;
-    color: #4d5156;
+    background-color: #fafafa;
+    color: #142638;
     font-family: 'Roboto', sans-serif;
   }
 
 .dark-mode {
-    background-color: #222426;
-    color: #dbdbdb;
+    background-color: #142638;
+    color: #fafafa;
+}
+
+.primary-color {
+  color: #53488d
+}
+
+.secondary-color {
+  color: #ffacac
+}
+
+.background-color {
+  color: #ffe5e5
 }
 
 .over-75 {
@@ -19,4 +31,31 @@ body {
 
 .hide {
   display: none;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-size: 2rem;
+}
+
+h1 {
+  text-align: center;
+}
+
+.button {
+  background: radial-gradient(74.41% 156.32% at 89.91% 93.95%,#c97d0b 0,rgba(255,168,0,0) 100%),linear-gradient(
+    180deg,#fecb00,#e29500);
+  border: none;
+  color: #142638;
+  font-size: 1rem;
+  padding: 15px 30px;
+  border-radius: 7px;
+  transition: all 0.3s;
+  cursor: pointer;
+  font-family: 'Roboto';
+  font-weight: 500;
+  text-transform: uppercase;
 }
