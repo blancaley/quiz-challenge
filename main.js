@@ -105,12 +105,16 @@ const restartQuizButton = document.querySelector("#restartQuiz");
 const quizContainer = document.querySelector("#quizContainer");
 const questionList = quizContainer.childNodes;
 const quizFinished = document.querySelector("#quizFinished");
+const showQuizButton = document.querySelector("#showQuiz");
 
 function darkMode() {
     document.body.classList.toggle("dark-mode");
 }
 
 function showQuiz() {
+    //Remove showQuizButton
+    showQuizButton.classList.add("hide");
+    unfinishedQuizMessage.classList.remove("hide");
     // Create and show each question
     quiz.forEach((questionAndAnswer, questionNumber) => {
         let questionItem = document.createElement("li");
@@ -252,11 +256,10 @@ function isQuizComplete() {
     } 
 }
 
-showQuiz();
-
 darkModeButton.addEventListener("click", darkMode);
 checkResultButton.addEventListener("click", checkAnswers);
 restartQuizButton.addEventListener("click", restartQuiz);
+showQuizButton.addEventListener("click", showQuiz);
 
 const allOptions = document.querySelectorAll("input");
 allOptions.forEach(option => {
