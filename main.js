@@ -231,12 +231,26 @@ function deleteScoreMessage() {
 }
 
 function isQuizComplete() {
-    const allCheckedOptions = document.querySelectorAll("input:checked");
-    // Only if all questions are answered show Check Answers button and remove message.
-    if (allCheckedOptions.length >= quiz.length) {
+    let answeredQuestionsCounter = 0;
+     // Go through each question to find how many are answered
+     questionList.forEach((question, questionNumber) => { 
+        // Find if there is a selected answer
+        let selectedAnswerElement = document.querySelector(`input[name="question-${questionNumber}"]:checked`);
+        // If there is a selected answer add to the total of answered questions. If there is no selected answer (null), don't count it.
+        if (selectedAnswerElement !== null) {
+            answeredQuestionsCounter++;
+        }
+    })
+    if (answeredQuestionsCounter === quiz.length) {
+    // When all questions are answered, save them, show Check Answers button and hide feedback message
+        saveAnswers();
         checkResultButton.hidden = false;
         unfinishedQuizMessage.classList.add("hide");
-    }
+    } else {
+    // If there are unanswered questions left, hide the Check Answers button and show feedback message
+        checkResultButton.hidden = true;
+        unfinishedQuizMessage.classList.remove("hide");
+    } 
 }
 
 showQuiz();
