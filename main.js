@@ -261,8 +261,11 @@ checkResultButton.addEventListener("click", checkAnswers);
 restartQuizButton.addEventListener("click", restartQuiz);
 showQuizButton.addEventListener("click", showQuiz);
 
-const allOptions = document.querySelectorAll("input");
-allOptions.forEach(option => {
-    option.addEventListener("change", isQuizComplete)
+document.addEventListener("click", () => {
+    if (quizContainer.children) {
+        const allOptions = document.querySelectorAll("input");
+        allOptions.forEach(option => {
+            option.addEventListener("change", isQuizComplete)
+        })
     }
-)
+})
