@@ -9,6 +9,16 @@ body {
     color: #fafafa;
 }
 
+#darkMode {
+  background-color: white;
+    padding: 5px;
+    margin: 10px;
+    border: #142638 solid 2px;
+}
+
+i {
+  padding-right: 5px;
+}
 .over-75 {
   color: green;
 }

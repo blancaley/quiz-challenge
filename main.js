@@ -1,6 +1,6 @@
 let quiz = [
     {
-        question: "Which is the local currency in Sweden?",
+        question: "What is the local currency in Sweden?",
         options: {
             a: "Euro (EUR)",
             b: "Swedish Crowns (SEK)",
